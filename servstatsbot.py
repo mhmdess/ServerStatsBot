@@ -145,7 +145,7 @@ class YourBot(telepot.Bot):
                 elif msg['text'] == "/vpnstats" and chat_id not in shellexecution:
                     print("chat_id:" + str(chat_id) + " selected /vpnstats")
                     bot.sendChatAction(chat_id, 'typing')
-                    p = Popen('sudo cat /var/log/openvpn/openvpn-status.log', shell=True,
+                    p = Popen('cat /etc/openvpn/openvpn-status.log', shell=True,
                               stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
                     output = p.stdout.read()
                     if output != b'':
